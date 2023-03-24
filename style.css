@@ -1,0 +1,228 @@
+@font-face {
+   font-family: "Against";
+   src: url("./fonts/against.otf");
+}
+
+@font-face {
+   font-family: "Libertine";
+   src: url("./fonts/LinLibertine_R.ttf");
+}
+
+:root {
+   --color-black: #111110;
+   --color-black-2: rgba(17, 17, 16, 0.486);
+   --color-white: #f1f1f1;
+   --color-white-2: #cecece;
+   --color-white-transparent: #cecece73;
+   --page-width: 1300px;
+}
+
+h1, h2, h3 {
+   font-weight: normal;
+   color: var(--color-white);
+}
+
+h1 {
+   font-size: 60px;
+   font-family: "Against";
+}
+
+h2 {
+   font-size: 24px;
+}
+
+h3 {
+   font-size: 24px;
+}
+
+p {
+   font-family: "Libertine";
+   color: var(--color-white-2);
+   font-size: 18px;
+   margin: 0;
+}
+
+body {
+   background-color: var(--color-black);
+}
+
+.site {
+   margin: auto;
+   max-width: var(--page-width);
+}
+
+.project.splash {
+   width: 100%;
+   height: 800px;
+   margin-top: 100px;
+}
+.project.splash h1 {
+   font-size: 75px;
+   transform: translate(-50%, 50%);
+   bottom: 0%;
+}
+.project.splash {
+   flex-direction: column;
+}
+.project.splash .visual {
+   flex: 4;
+}
+
+.project {
+   width: 100%;
+   height: 450px;
+
+   margin-bottom: 100px;
+
+   display: flex;
+   flex-direction: row;
+}
+
+.project img:hover {
+   
+}
+
+.project .visual {
+   position: relative;
+   height: 100%;
+   flex: 2;
+}
+
+.project .visual .play-hint {
+
+   width: 100%;
+   height: 100%;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.project .visual .play-hint > * {
+   opacity: 0;
+   transition: opacity 100ms;
+
+   flex: 1;
+   height: 100%;
+
+   border: none;
+
+   color: var(--color-white-transparent);
+   background: transparent;
+   font-family: "Libertine";
+   font-size: 22px;
+
+   cursor: pointer;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.project .visual .play-hint button > div,
+.project .visual .play-hint a > div {
+   background-color: var(--color-black-2);
+   color: var(--color-white-2);
+
+   padding: 10px;
+   width: 50px;
+   border-radius: 100px;
+   text-align: center;
+}
+
+.project .visual .play-hint .previous {
+   justify-content: flex-start;
+   padding-left: 50px;
+}
+
+.project .visual .play-hint .next {
+   justify-content: flex-end;
+   padding-right: 50px;
+}
+
+.project .visual .play-hint .watch {
+   flex: 2;
+}
+
+.project .visual .play-hint button:hover,
+.project .visual .play-hint a:hover {
+   opacity: 1;
+}
+
+.project .visual .play-hint a div {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.project .visual .play-hint a {
+   text-decoration: none;
+}
+
+.project .info {
+   flex: 1;
+   text-align: center;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+}
+
+.project .visual > * {
+   position: absolute;
+}
+
+.project .visual a {
+   width: 100%;
+   height: 100%;
+}
+
+.project img {
+   width: 100%;
+   height: 100%;
+   object-fit: cover;
+
+   cursor: pointer;
+}
+
+.project h1 {
+   margin: 0;
+   left: 50%;
+   text-align: center;
+   transform: translate(-50%, -50%);
+}
+
+.project.left h1 {
+   left: 35%;
+   text-align: left;
+}
+
+.project.right h1 {
+   left: 65%;
+   text-align: right;
+}
+
+.project.right {
+   margin-left: auto;
+   flex-direction: row-reverse;
+}
+
+.videoplayer-background {
+   position: fixed;
+   width: 100vw;
+   height: 100vh;
+   top: 0%;
+   left: 0%;
+
+   z-index: 3;
+
+   background-color: #111110d3;
+
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.videoplayer {
+}

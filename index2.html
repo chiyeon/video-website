@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>BENJAMIN WONG</title>
+   <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<script type="module">
+   import { createApp, reactive } from "https://unpkg.com/petite-vue?module"
+
+   /* Create a Project Data type object */
+   const ProjectData = (title, title_sub, description, images, url, accent_class) => {
+      return {
+         title: title,
+         title_sub: title_sub,
+         description: description,
+         images: images,
+         url: url,
+         accent_class: accent_class
+      }
+   }
+
+   /* contains all data for projects, used to render dom elements */
+   const project_data = [
+      ProjectData(
+         "HOSHIZORA",
+         "KEYBOARD BUILD VIDEO",
+         "a carefully shot, visual & auditory experience",
+         [
+            "imgs/hoshi/hoshi_2.jpg",
+            "imgs/hoshi/hoshi_1.jpg",
+            "imgs/hoshi/hoshi_3.jpg",
+         ],
+         "https://youtu.be/kjGSr2NMFNc",
+         "splash"
+      ),
+      ProjectData(
+         "VALORANT",
+         "VIDEO GAME MONTAGE",
+         "a collection of edited gameplay",
+         [
+            "imgs/val/val_1.jpg"
+         ],
+         "https://youtu.be/kjGSr2NMFNc",
+         "left"
+      ),
+      ProjectData(
+         "KEYBOARDS",
+         "KEYBOARD SOUND TESTS",
+         "a myriad of high fidelity keyboard sound tests",
+         [
+            "imgs/sound_tests/neko.jpg"
+         ],
+         "https://youtu.be/kjGSr2NMFNc",
+         "right"
+      ),
+      ProjectData(
+         "CHATGPT",
+         "a language learning model",
+         "a myriad of high fidelity keyboard sound tests",
+         [
+            "imgs/picture.jpg"
+         ],
+         "https://youtu.be/kjGSr2NMFNc",
+         "left"
+      )
+   ]
+
+   /* project dom element */
+   function Project(props) {
+      return {
+         $template: "#project-template",
+         title: props.title,
+         title_sub: props.title_sub,
+         description: props.description,
+         images: props.images,
+         image_current: 0,
+         url: props.url,
+         accent_class: props.accent_class,
+         next_image() {
+            this.image_current++;
+
+            if (this.image_current == this.images.length) this.image_current = 0
+         },
+         prev_image() {
+            this.image_current--;
+
+            if (this.image_current <= 0) this.image_current = this.images.length - 1
+         }
+      }
+   }
+   createApp({
+      project_data,
+      Project,
+   }).mount()
+</script>
+
+<template id="project-template">
+   <div class="visual">
+      <img :src="images[image_current]" />
+      <div class="play-hint">
+         <button class="previous" @click="prev_image"><div>prev</div></button>
+         <a class="watch" :href="url"><div>watch</div></a>
+         <button class="next" @click="next_image"><div>next</div></button>
+      </div>
+      <h1>{{title}}</h1>
+   </div>
+   <div class="info">
+      <h2 v-if="accent_class != 'splash'">{{title_sub}}</h2>
+      <p>{{description}}</p>
+   </div>
+</template>
+
+<div class="site">
+   <div
+      v-for="project in project_data"
+      v-scope="Project(project)"
+      :class="'project ' + project.accent_class"
+   ></div>
+</div>
+</body>
+</html>
