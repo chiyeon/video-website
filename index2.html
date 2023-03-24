@@ -12,10 +12,11 @@
    import { createApp, reactive } from "https://unpkg.com/petite-vue?module"
 
    /* Create a Project Data type object */
-   const ProjectData = (title, title_sub, description, images, url, accent_class) => {
+   const ProjectData = (title, title_sub, date, description, images, url, accent_class) => {
       return {
          title: title,
          title_sub: title_sub,
+         date: date,
          description: description,
          images: images,
          url: url,
@@ -24,10 +25,11 @@
    }
 
    /* contains all data for projects, used to render dom elements */
-   const project_data = [
+   const film_projects_data = [
       ProjectData(
          "HOSHIZORA",
-         "KEYBOARD BUILD VIDEO",
+         "Keyboard Build Video",
+         "2023",
          "a carefully shot, visual & auditory experience",
          [
             "imgs/hoshi/hoshi_2.jpg",
@@ -38,19 +40,25 @@
          "splash"
       ),
       ProjectData(
-         "VALORANT",
-         "VIDEO GAME MONTAGE",
-         "a collection of edited gameplay",
+         "MEET RECAP",
+         "Miles N. Meet Recap",
+         "2022",
+         "The recap for Miles Nguyen's performance at Socal Powerlifting's Thanksgiving Throwdown",
          [
-            "imgs/val/val_1.jpg"
+            "imgs/pl_highlight/pl_1.jpg",
+            "imgs/pl_highlight/pl_2.jpg",
+            "imgs/pl_highlight/pl_3.jpg",
+            "imgs/pl_highlight/pl_4.jpg",
+            "imgs/pl_highlight/pl_5.jpg",
          ],
-         "https://youtu.be/kjGSr2NMFNc",
-         "left"
+         "https://youtu.be/xE0yMxPyy3c",
+         "left mobile"
       ),
       ProjectData(
-         "KEYBOARDS",
-         "KEYBOARD SOUND TESTS",
-         "a myriad of high fidelity keyboard sound tests",
+         "SOUND TEST",
+         "Keyboard Sound Tests",
+         "2023",
+         "A myriad of high fidelity keyboard sound tests.",
          [
             "imgs/sound_tests/neko.jpg"
          ],
@@ -58,15 +66,32 @@
          "right"
       ),
       ProjectData(
-         "CHATGPT",
-         "a language learning model",
-         "a myriad of high fidelity keyboard sound tests",
+         "POWERLIFTING",
+         "Powerlifting Club at UCI",
+         "2022",
+         "a video for aspiring powerlifters at UCI",
          [
-            "imgs/picture.jpg"
+            "imgs/pl_socal/socal_1.jpg",
+            "imgs/pl_socal/socal_2.jpg",
+            "imgs/pl_socal/socal_3.jpg",
+            "imgs/pl_socal/socal_4.jpg",
          ],
-         "https://youtu.be/kjGSr2NMFNc",
-         "left"
-      )
+         "https://youtu.be/0B3FwWkPBG8",
+         "left mobile"
+      ),
+      ProjectData(
+         "VGDC GGJ",
+         "VGDC at UCI's Global Game Jam",
+         "2023",
+         "a brief highlight of Video Game Development Club at UCI's global game jam games",
+         [
+            "imgs/vgdc/ggj_1.jpg",
+            "imgs/vgdc/ggj_2.jpg",
+            "imgs/vgdc/ggj_3.jpg",
+         ],
+         "https://youtube.com/shorts/0VKxQXojxXI",
+         "right mobile extra"
+      ),
    ]
 
    /* project dom element */
@@ -76,6 +101,7 @@
          title: props.title,
          title_sub: props.title_sub,
          description: props.description,
+         date: props.date,
          images: props.images,
          image_current: 0,
          url: props.url,
@@ -93,7 +119,7 @@
       }
    }
    createApp({
-      project_data,
+      film_projects_data,
       Project,
    }).mount()
 </script>
@@ -110,13 +136,19 @@
    </div>
    <div class="info">
       <h2 v-if="accent_class != 'splash'">{{title_sub}}</h2>
+      <p class="date">{{date}}</p>
       <p>{{description}}</p>
    </div>
 </template>
 
 <div class="site">
+   <div class="header">
+      <a>Home</a>
+      <a>Film</a>
+      <a>Motion Graphics</a>
+   </div>
    <div
-      v-for="project in project_data"
+      v-for="project in film_projects_data"
       v-scope="Project(project)"
       :class="'project ' + project.accent_class"
    ></div>
