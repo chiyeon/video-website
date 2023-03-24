@@ -288,11 +288,11 @@ body {
 }
 
 .project.left.mobile.extra h1 {
-   transform: translate(35%, -60%);
+   transform: translate(25%, -60%);
 }
 
 .project.right.mobile.extra h1 {
-   transform: translate(-35%, -60%);
+   transform: translate(-25%, -60%);
 }
 
 .project.right {
