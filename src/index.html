@@ -19,36 +19,44 @@
    <link rel="preload" fetchpriority="high" as="image" href="./imgs/hoshi/hoshi_1.webp" type="image/webp">
 </head>
 <body>
-<script type="module" src="script.js"></script>
-
+   
 <template id="project-template">
-   <div class="visual">
-      <img :src="images[image_current]" alt="image preview" />
-      <div class="play-hint">
-         <button class="previous" @click="prev_image"><img src="icons/arrow-left.png" alt="left arrow"/></button>
-         <a class="watch" target="__blank" :href="url"><img src="icons/play.png" alt="play video"/></a>
-         <button class="next" @click="next_image"><img src="icons/arrow-right.png" alt="right arrow"/></button>
+   <div class="project ${data.accent_class}">
+      <div class="visual">
+         <img id="img-${id}" data-src="${image_url}" alt="image preview" />
+         <div class="play-hint">
+            <button data-id="${id}" class="previous" onclick="prev_image(this)"><img src="icons/arrow-left.png" alt="left arrow"/></button>
+            <a class="watch" target="__blank" href="${data.url}"><img src="icons/play.png" alt="play video"/></a>
+            <button data-id="${id}" class="next" onclick="next_image(this)"><img src="icons/arrow-right.png" alt="right arrow"/></button>
+         </div>
+         <h1>${data.title}</h1>
       </div>
-      <h1>{{title}}</h1>
-   </div>
-   <div class="info">
-      <h2 v-if="accent_class != 'splash'">{{title_sub}}</h2>
-      <p class="date">{{date}}</p>
-      <p>{{description}}</p>
+      <div class="info">
+         <h2 class="${data.accent_class == 'splash' ? 'disabled' : ''}">${data.title_sub}</h2>
+         <p class="date">${data.date}</p>
+         <p>${data.description}</p>
+      </div>
    </div>
 </template>
 
-<div class="site">
-   <!--div class="header">
-      <a>Home</a>
-      <a>Film</a>
-      <a>Motion Graphics</a>
-   </div-->
-   <div
-      v-for="project in film_projects_data"
-      v-scope="Project(project)"
-      :class="'project ' + project.accent_class"
-   ></div>
+<template id="home-page">
+   <div class="home">
+      <div class="about">
+         <h1>About Me</h1>
+         <p>I'm Benjamin Wong, an undergraduate Computer Science student at the University of California Irvine with a passion for filmmaking and motion graphics. From an initial fascination blossoming in high school, I now serve as the videographer for Video Game Development Club and Powerlifting Club at UCI.</p>
+      </div>
+   </div>
+</template>
+
+<div id="site" class="site">
+   <div class="header">
+      <!--p id="home" onclick="set_page(this, 'home')">Home</p-->
+      <p id="film" onclick="set_page(this, 'film')">Film</p>
+      <p id="motiongraphics" onclick="set_page(this, 'motiongraphics')">Motion Graphics</p>
+   </div>
+   <div id="page-view"></div>
 </div>
+
+<script src="script.js"></script>
 </body>
 </html>

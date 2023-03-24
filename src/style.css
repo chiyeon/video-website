@@ -47,6 +47,10 @@ body {
    background-color: var(--color-black);
 }
 
+.disabled {
+   display: none;
+}
+
 .site {
    margin: auto;
    max-width: var(--page-width);
@@ -298,6 +302,28 @@ body {
 .project.right {
    margin-left: auto;
    flex-direction: row-reverse;
+}
+
+.header {
+   display: flex;
+   flex-direction: row;
+   gap: 30px;
+
+   text-align: center;
+}
+
+.header * {
+   cursor: pointer;
+}
+
+.header *:hover,
+.header *.selected {
+   text-decoration: underline;
+}
+
+.home {
+   max-width: 650px;
+   margin: auto;
 }
 
 /* full mobile */
