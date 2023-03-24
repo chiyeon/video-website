@@ -112,6 +112,11 @@ body {
    width: 100%;
 }
 
+.project .info p {
+   padding-left: 30px;
+   padding-right: 30px;
+}
+
 .project {
    width: 100%;
    height: 450px;
@@ -182,8 +187,8 @@ body {
 }
 
 .play-hint img {
-   max-width: 32px;
-   max-height: 32px;
+   max-width: 28px;
+   max-height: 28px;
    filter: invert(1);
    opacity: 0.5;
 }
@@ -321,6 +326,10 @@ body {
    .project.mobile .visual {
       flex: 3;
       max-width: 450px;
+   }
+
+   .project .visual .play-hint {
+      width: 225px;
    }
 
    .project .visual .play-hint a {
