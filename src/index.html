@@ -4,8 +4,17 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>BENJAMIN WONG</title>
+   <meta name="title" content="Video Portfolio - Benjamin Wong">
+   <meta name="description" content="A collection of films and motion graphics projects.">
+
+   <meta property="og:title" content="The video portfolio for Benjamin Wong" />
+   <meta property="og:description" content="A collection of films and motion graphics projects." />
+   <meta property="og:image" content="./imgs/hoshi/hoshi_1.webp" />
+
+   <title>film.benjiwong.com</title>
    <link rel="stylesheet" type="text/css" href="style.css">
+   <link rel="icon" type="image/x-icon" href="./favicon.ico">
+   <link rel="preload" fetchpriority="high" as="image" href="./imgs/hoshi/hoshi_1.webp" type="image/webp">
 </head>
 <body>
 <script type="module">
@@ -65,7 +74,7 @@
             "imgs/sound_tests/ciel.webp",
             "imgs/sound_tests/basketweave.webp",
          ],
-         "https://youtu.be/kjGSr2NMFNc",
+         "https://www.youtube.com/watch?v=UL29yHQWmHo&list=PLtY2OxYBVyE9MlJ8YQu98vzIh_JBJUGjP&index=2&ab_channel=chiyeon",
          "right"
       ),
       ProjectData(
@@ -129,11 +138,11 @@
 
 <template id="project-template">
    <div class="visual">
-      <img :src="images[image_current]" />
+      <img :src="images[image_current]" alt="image preview" />
       <div class="play-hint">
-         <button class="previous" @click="prev_image"><div>prev</div></button>
-         <a class="watch" :href="url"><div>watch</div></a>
-         <button class="next" @click="next_image"><div>next</div></button>
+         <button class="previous" @click="prev_image"><img src="icons/arrow-left.png" alt="left arrow"/></button>
+         <a class="watch" target="__blank" :href="url"><img src="icons/play.png" alt="play video"/></a>
+         <button class="next" @click="next_image"><img src="icons/arrow-right.png" alt="right arrow"/></button>
       </div>
       <h1>{{title}}</h1>
    </div>
