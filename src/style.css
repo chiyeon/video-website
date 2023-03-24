@@ -91,6 +91,9 @@ body {
 .project.splash .play-hint {
    bottom: 15% !important;
 }
+.project.splash .play-hint img {
+   opacity: 0.8;
+}
 
 .project.mobile {
    height: 800px;
@@ -135,7 +138,7 @@ body {
    bottom: 0%;
    left: 50%;
    transform: translate(-50%, 100%);
-   width: 25%;
+   width: 128px;
    height: 50px;
 
    display: flex;
@@ -172,6 +175,10 @@ body {
 
 .project .visual .play-hint .next {
    justify-content: flex-end;
+}
+
+.project .visual img:hover + .play-hint {
+   opacity: 1;
 }
 
 .play-hint img {
@@ -314,10 +321,6 @@ body {
    .project.mobile .visual {
       flex: 3;
       max-width: 450px;
-   }
-
-   .project .visual .play-hint {
-      width: min(100%, 128px);
    }
 
    .project .visual .play-hint a {
