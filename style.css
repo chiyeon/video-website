@@ -84,6 +84,9 @@ body {
 .project.splash .visual {
    flex: 4;
 }
+.project.splash {
+   gap: 25px;
+}
 
 .project.mobile {
    height: 800px;
@@ -250,15 +253,22 @@ body {
 .project.left h1 {
    left: 0% !important;
    text-align: left;
-   transform: translate(25%, -60%);
+   transform: translate(20%, -60%);
+}
+
+.project.right h1 {
+   left: auto;
+   right: 0% !important;
+   transform: translate(-20%, -60%);
+   text-align: right;
 }
 
 .project.left.mobile h1 {
-   transform: translate(25%, -60%);
+   transform: translate(10%, -60%);
 }
 
 .project.right.mobile h1 {
-   transform: translate(-25%, -60%);
+   transform: translate(-10%, -60%);
 }
 
 .project.left.mobile.extra h1 {
@@ -267,13 +277,6 @@ body {
 
 .project.right.mobile.extra h1 {
    transform: translate(-35%, -60%);
-}
-
-.project.right h1 {
-   left: auto;
-   right: 0% !important;
-   transform: translate(-25%, -60%);
-   text-align: right;
 }
 
 .project.right {
