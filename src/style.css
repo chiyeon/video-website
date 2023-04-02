@@ -176,6 +176,12 @@ body {
    display: flex;
    justify-content: center;
    align-items: center;
+
+   opacity: 0.5;
+}
+
+.project .visual .play-hint > *:hover {
+   opacity: 1;
 }
 
 .project .visual .play-hint .previous {
@@ -314,11 +320,44 @@ body {
 .header *.selected {
    text-decoration: underline;
 }
-
-.home {
+/* about page */
+.about {
    max-width: 650px;
    margin: auto;
 }
+
+.about .visual {
+   position: relative;
+   display: block;
+   
+   height: max(500px, 10vw);
+   margin-bottom: 50px;
+   margin-top: 50px;
+}
+
+.about .visual * {
+}
+
+.about .visual img {
+   height: 100%;
+
+   object-fit: cover;
+   left: 50%;
+   transform: translateX(-50%);
+}
+
+.about .visual h1 {
+   bottom: 0%;
+   right: 0%;
+   transform: translate(-50%, 55%);
+
+   margin: 0;
+}
+
+.about .visual * {
+   position: absolute;
+}
+
 
 /* full mobile */
 @media only screen and (max-width: 750px) {
@@ -350,6 +389,7 @@ body {
 
    .project .visual .play-hint {
       width: 225px;
+      opacity: 1;
    }
 
    .project .visual .play-hint a {

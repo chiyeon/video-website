@@ -5,8 +5,8 @@
 /* changes our current page */
 function set_page(e, page) {
    if (page in pages) page_view.innerHTML = pages[page]
-   else page_view.innerHTML = pages["home"] // TODO change to home
-
+   else page_view.innerHTML = pages["about"] // TODO change to about
+   
    /*window.history.pushState(page, page, "/" + page)
    localStorage.setItem("page", page)*/
 
@@ -88,10 +88,10 @@ function create_page_from_template(page_name, template_name) {
 
 /* register our project template & create our pages, then set default page */
 register_template("Project", "project-template")
-register_template("Home", "home-page")
+register_template("About", "about-page")
 create_page_from_data("film", film_projects_data)
 create_page_from_data("motiongraphics", mograph_projects_data)
-create_page_from_template("home", "Home")
+create_page_from_template("about", "About")
 
 //let page = localStorage.getItem("page")
 //let target = page ? page : "film"
