@@ -6,7 +6,7 @@
 function set_page(e, page) {
    if (page in pages) page_view.innerHTML = pages[page]
    else page_view.innerHTML = pages["about"] // TODO change to about
-   
+
    /*window.history.pushState(page, page, "/" + page)
    localStorage.setItem("page", page)*/
 
@@ -41,6 +41,12 @@ function prev_image(e) {
    if (img_ref.current < 0) img_ref.current = img_ref.images.length - 1
 
    document.getElementById(`img-${id}`).src = img_ref.images[img_ref.current]
+}
+
+function toggle_description(img_button, id) {
+   let target_el = document.getElementById(`desc-${id}`)
+   target_el.className.includes("covered") ? target_el.classList.remove("covered") : target_el.classList.add("covered")
+   img_button.className.includes("flipped") ? img_button.classList.remove("flipped") : img_button.classList.add("flipped")
 }
 
 /* basic global dictionaries */

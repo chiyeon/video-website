@@ -34,7 +34,9 @@
       <div class="info">
          <h2 class="${data.accent_class == 'splash' ? 'disabled' : ''}">${data.title_sub}</h2>
          <p class="date">${data.date}</p>
-         <p>${data.description}</p>
+         <p class="tagline">${data.tagline}</p>
+         <img onclick="toggle_description(this, '${id}')" src="./icons/arrow-left.png" />
+         <p id="desc-${id}" class="description covered">${data.description}</p>
       </div>
    </div>
 </template>
