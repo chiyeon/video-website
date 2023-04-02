@@ -1,0 +1,18 @@
+@font-face {
+   font-family: "Against";
+   src: url("./fonts/against.otf");
+}
+
+@font-face {
+   font-family: "Crimson";
+   src: url("./fonts/CrimsonText-Regular.ttf");
+}
+
+:root {
+   --color-black: #111110;
+   --color-black-2: rgba(17, 17, 16, 0.486);
+   --color-white: #f1f1f1;
+   --color-white-2: #cecece;
+   --color-white-transparent: #cecece73;
+   --page-width: 1300px;
+}
