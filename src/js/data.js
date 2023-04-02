@@ -1,5 +1,3 @@
-import { createApp, reactive } from "https://unpkg.com/petite-vue?module"
-
 /* Create a Project Data type object */
 const ProjectData = (title, title_sub, date, description, images, url, accent_class) => {
    return {
@@ -9,7 +7,7 @@ const ProjectData = (title, title_sub, date, description, images, url, accent_cl
       description: description,
       images: images,
       url: url,
-      accent_class: accent_class
+      accent_class: accent_class,
    }
 }
 
@@ -129,32 +127,9 @@ const film_projects_data = [
    ),
 ]
 
-/* project dom element */
-function Project(props) {
-   return {
-      $template: "#project-template",
-      title: props.title,
-      title_sub: props.title_sub,
-      description: props.description,
-      date: props.date,
-      images: props.images,
-      image_current: 0,
-      url: props.url,
-      accent_class: props.accent_class,
-      next_image() {
-         this.image_current++;
-
-         if (this.image_current == this.images.length) this.image_current = 0
-      },
-      prev_image() {
-         this.image_current--;
-
-         if (this.image_current < 0) this.image_current = this.images.length - 1
-      }
-   }
-}
-createApp({
+/*
+export {
    film_projects_data,
-   mograph_projects_data,
-   Project,
-}).mount()
+   mograph_projects_data
+}
+*/

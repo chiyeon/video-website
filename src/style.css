@@ -191,16 +191,10 @@ body {
 }
 
 .play-hint img {
-   max-width: 28px;
-   max-height: 28px;
-   filter: invert(1);
-   opacity: 0.5;
-}
-
-.play-hint .previous img,
-.play-hint .next img {
    max-width: 22px;
    max-height: 22px;
+   filter: invert(1);
+   opacity: 0.5;
 }
 
 .project.mobile .visual .play-hint .previous {
