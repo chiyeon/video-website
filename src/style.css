@@ -370,9 +370,11 @@ body {
 
 .about .visual {
    position: relative;
-   display: block;
+   display: flex;
+   justify-content: center;
+   align-items: center;
    
-   height: max(500px, 10vw);
+   height: fit-content;
    margin-bottom: 50px;
    margin-top: 50px;
 }
@@ -381,23 +383,11 @@ body {
 }
 
 .about .visual img {
-   height: 100%;
-
+   max-width: 100%;
    object-fit: cover;
-   left: 50%;
-   transform: translateX(-50%);
 }
 
 .about .visual h1 {
-   bottom: 0%;
-   right: 0%;
-   transform: translate(-50%, 55%);
-
-   margin: 0;
-}
-
-.about .visual * {
-   position: absolute;
 }
 
 
